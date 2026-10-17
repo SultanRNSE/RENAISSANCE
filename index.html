@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>template</title>
+    <style>
+        body{
+            margin:0; 
+            position: relative;
+            isolation: isolate;
+            min-height: 100vh;
+            display: grid;
+            place-items: center;
+        }
+        body::before{
+            content: "";
+            z-index: -1;
+            filter: blur(3px);
+            position: fixed;
+            background-size: cover;
+            inset: -12px;
+            background-image : url('/static/fa.avif');
+
+        }
+        .container {
+            width: min(100%, 480px);
+            height: min(100%, 370px);
+            padding: clamp(28px, 7vw, 52px);
+            border: 5px solid rgba(245, 245, 245, 0.555);
+            backdrop-filter: blur(12px);
+            background:rgba(8, 8, 8, 0.25) ;
+            border-radius: 24px;
+            justify-self: center;
+            align-content: center;
+        }
+
+        .container h1{
+            color: rgba(254, 115, 1, 0.6);
+            text-align: center;                      
+        }
+        .container form{
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+
+        }
+        .field {
+            display: grid;
+            grid-template-columns: 90px 1fr;
+            align-items: center;
+             gap: 10px;
+         } 
+        .container  input {
+            height: 36px;
+            width: min(100%, 480px);
+            border-radius: 14px;
+            border: 1px solid rgb(255 255 255 / 30%);
+            background: rgba(255, 255, 255, 0.75);
+            backdrop-filter: blur(24px);
+        }
+        form label{
+            color: white;
+            font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif ;
+        }
+        .button{
+            width: 200px;
+            padding: 6px 12px;
+            color: white;
+            height: 30px;
+            backdrop-filter: blur(12px);
+            background: rgba(254, 115, 1, 0.6);
+            border-radius: 10px;
+            border: none;
+            align-self: center;
+            transition: transform 0.3s ease;
+        }
+        .button:hover{
+            transform: translateY(3px) scale(1.025) translateX(2px) scale(1.2);
+        }
+        
+    </style>
+</head>
+
+<body>
+    
+    <div class="container">
+        <h1>WELCOME TO RENAISSANCE</h1>
+      
+    <form action="/job" method="post">
+        <div class="field">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" placeholder="Enter your name">
+        </div>
+        <div class="field">
+        <label for="email">Email:</label>
+        <input type="text" id="email" name="email" placeholder="Enter your E-mail">
+        </div>
+        <div class="field">
+        <label for="password">Password:</label>
+        <input type="text" id="password" name="password" placeholder="Enter your password">
+        </div>
+        <button class="button" type="submit">Submit</button>
+    </form>
+   
+    </div>
+</body>
+</html>
+  
